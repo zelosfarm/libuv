@@ -1,0 +1,11 @@
+.{
+    .name = "uv",
+    .version = "1.46.0",
+    .paths = .{
+        "src",
+        "include",
+        "build.zig",
+        "build.zig.zon",
+    },
+    .dependencies = .{},
+}
