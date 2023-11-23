@@ -12,6 +12,12 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+    uv.want_lto = false;
+    uv.disable_sanitize_c = true;
+    if (optimize == .Debug or optimize == .ReleaseSafe)
+        uv.bundle_compiler_rt = true
+    else
+        uv.strip = true;
     uv.linkLibC();
     if (target.isWindows()) {
         uv.linkSystemLibrary("psapi");
